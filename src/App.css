@@ -1,8 +1,14 @@
+@import url("http://fonts.cdnfonts.com/css/pokemon-solid");
 #root {
   text-align: center;
   background-color: #F08030;
   min-height: 100vh;
   min-width: 100vw;
+}
+
+.navbar {
+  font-family: "Pokemon Solid", sans-serif;
+  letter-spacing: 0.2em;
 }
 
 .App-header {
