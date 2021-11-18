@@ -23,3 +23,19 @@
 }
 
 /*# sourceMappingURL=App.css.map */
+.side_menu {
+  min-height: 100vh;
+  max-width: 200px;
+  position: fixed;
+}
+
+.search_input {
+  display: inline-block;
+  width: 80%;
+}
+
+.nav-link {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-left: 0.5rem;
+}
