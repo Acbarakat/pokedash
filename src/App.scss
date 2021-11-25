@@ -61,7 +61,18 @@
 
 .pokemodal {
     //background: darken($pokeball-red, 20%);
-    border-radius: 2%;
+    border-radius: 15px;
+    .modal-header {
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px;
+        //background: darken($pokeball-red, 20%);
+        //color: #FFF;
+        img {
+            height: 40px;
+            width: 40px;
+            margin-left: 5px;
+        }
+    }
     .modal-title {
         //font-family: 'Pokemon Solid', sans-serif;
         font-family: 'pokemon-font', monospace;
@@ -151,13 +162,15 @@
     a.nav-link>br {
         display: none !important;
     }
-    .modal {
-        #prof-oak {
-            height: 350px;
-            right: -130px;
-        }
-    }
     .pokemodal {
+        .modal-footer {
+            flex-wrap: unset;
+        }
+        #prof-oak {
+            height: 200px;
+            right: unset;
+            position: unset;
+        }
         .carousel {
             .carousel-indicators {
                 top: 4%;

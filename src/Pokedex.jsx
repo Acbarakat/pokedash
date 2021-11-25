@@ -7,7 +7,7 @@ import {
     Row,
     Col
 } from 'react-bootstrap';
-import Typist from 'react-typing-animation';
+import Typical from 'react-typical'
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -47,7 +47,10 @@ class PokeModal extends React.Component {
                 {base_stat: 10}
             ],
             sprites: {},
-            flavor_text: " "
+            flavor_text: " ",
+            types: [
+                {type: {name: 'normal'}}
+            ]
         };
 
         this.fetchData = this.fetchData.bind(this);
@@ -64,7 +67,8 @@ class PokeModal extends React.Component {
             //console.log(response.data);
         })
         .catch((error) => {
-            console.error('There was an ERROR: ', error);
+            //console.error('There was an ERROR: ', error);
+            this.setState({flavor_text: "Hmm I seem to be missing notes."})
         });
     }
 
@@ -73,7 +77,8 @@ class PokeModal extends React.Component {
             name,
             stats,
             sprites,
-            flavor_text
+            flavor_text,
+            types
         } = this.state;
         let data = {
             labels: ['HP', "Attack", "Defense", "Sp. Attack", "Sp. Defense", "Speed"],
@@ -127,7 +132,12 @@ class PokeModal extends React.Component {
                 ));
             }
         });
-        //console.log(this.state);
+        console.log(this.state);
+
+        let typeIcons = types.map((v)=>{
+            let {name} = v.type;
+            return (<img src={`${name}.png`} alt={`${name} type symbol`} />);
+        });
 
         return (
             <Modal
@@ -142,6 +152,7 @@ class PokeModal extends React.Component {
                     <Modal.Title id="contained-modal-title-vcenter">
                     {name}
                     </Modal.Title>
+                    {typeIcons}
                 </Modal.Header>
                 <Modal.Body>
                     <Container>
@@ -159,9 +170,9 @@ class PokeModal extends React.Component {
                 </Modal.Body>
                 <Modal.Footer>
                     <img src="/prof-oak.png" id="prof-oak" alt="professor oak" />
-                    <Typist>
-                        {flavor_text}
-                    </Typist>
+                    <Typical
+                        steps={[flavor_text]}
+                        />
                 </Modal.Footer>
             </Modal>
         );
