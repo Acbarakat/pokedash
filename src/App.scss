@@ -10,7 +10,7 @@
 .navbar {
     font-family: 'Pokemon Solid', sans-serif;
     letter-spacing: 0.2em;
-    .bg-pokemon {
+    &.bg-pokemon {
         background-color: $pkmn-logo-yellow !important;
     }
     .nav-link {
