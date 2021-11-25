@@ -9,10 +9,10 @@ import {
     Nav,
     Container
 } from "react-bootstrap";
+import { Icon } from '@iconify/react';
 import Pokedex from './Pokedex';
-import Party from './Party';
+import Pokenews from './Pokenews';
 import Trainers from './Trainers'
-import Welcome from './Welcome';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -20,15 +20,14 @@ import './App.css';
 function App() {
   return (
         <BrowserRouter>
-            <Navbar expand="lg" bg="dark" variant="dark" fixed="top"> 
+            <Navbar expand="lg" bg="pokemon"> 
                 <Container>
-                    <Navbar.Brand className="m-auto">ICON HERE</Navbar.Brand>
                     <Nav fill className="m-auto w-100 ">
                         <Nav.Item>
-                            <Nav.Link href="/pokedex">Pokedex</Nav.Link>
+                            <Nav.Link href="/pokedex"><Icon icon="ic:twotone-catching-pokemon" width="40" /><br/>Pokedex</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="/party">Party Planner</Nav.Link>
+                            <Nav.Link href="/pokenews"><Icon icon="mdi:pokemon-go" width="40"/><br/>PokeNews</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link href="/trainers">Trainers/Developers</Nav.Link>
@@ -40,14 +39,14 @@ function App() {
                 <Route path="/pokedex">
                     <Pokedex />
                 </Route>
-                <Route path="/party">
-                    <Party />
+                <Route path="/pokenews">
+                    <Pokenews />
                 </Route>
                 <Route path="/trainers">
                     <Trainers />
                 </Route>
                 <Route path="/">
-                    <Welcome />
+                    <Pokenews />
                 </Route>
             </Switch>
         </BrowserRouter>

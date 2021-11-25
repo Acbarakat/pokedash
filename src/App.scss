@@ -2,10 +2,10 @@
 @import url('http://fonts.cdnfonts.com/css/pokemon-solid');
 // lorem ipsum
 #root {
-    text-align: center;
-    background-color: $fire;
+    background-color: $pkmn-logo-blue;
     min-height: 100vh;
     min-width: 100vw;
+    --line-color: #{$pkmn-logo-yellow};
 }
 
 .navbar {
@@ -22,4 +22,68 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+}
+
+.pokedex {
+    grid-gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(82px, 1fr));
+}
+
+.vertical-timeline-element-date {
+    top: -45px !important;
+    font-family: 'Pokemon Solid', sans-serif;
+    font-size: 2rem !important;
+    color: $pkmn-logo-yellow;
+    opacity: unset !important;
+    text-shadow: 2px 2px 0 $pkmn-logo-blue-dark;
+    &:nth-child(odd) {
+        text-align: left;
+    }
+}
+
+.vertical-timeline-element-image,
+.vertical-timeline-element-video {
+    width: 100%;
+    padding-bottom: 24px;
+}
+
+.vertical-timeline-element-content-arrow {
+    border-right: 7px solid $pkmn-logo-yellow;
+}
+
+.vertical-timeline-element-icon {
+    background: #FFF;
+    box-shadow: 0 0 0 4px $pkmn-logo-yellow, inset 0 2px 0 rgb(0 0 0 / 8%), 0 3px 0 4px rgb(0 0 0 / 5%);
+    img {
+        top: 9px;
+        left: 9px;
+        width: 70%;
+        position: relative;
+    }
+}
+
+.vertical-timeline-element-content {
+    background: $pkmn-logo-yellow;
+    box-shadow: 0 3px 0 $pkmn-logo-yellow-dark;
+    h1 {
+        font-weight: 500;
+        font-size: 1.2rem;
+    }
+}
+
+.bg-pokemon {
+    background-color: $pkmn-logo-yellow !important;
+}
+
+.nav-link {
+    color: #000 !important;
+    &:hover {
+        color: $pkmn-logo-blue !important;
+    }
+}
+
+@media (max-width: 990px) {
+    a.nav-link>br {
+        display: none !important;
+    }
 }
