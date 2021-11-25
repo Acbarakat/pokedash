@@ -1,19 +1,28 @@
 import * as React from "react";
 import {Collection, AutoSizer} from 'react-virtualized';
-import {Modal, Button} from 'react-bootstrap';
+import {
+    Modal,
+    Carousel,
+    Container,
+    Row,
+    Col
+} from 'react-bootstrap';
+import Typist from 'react-typing-animation';
 import {
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
     BarElement,
     Title,
-    Back
+    defaults
   } from 'chart.js';
   import {
     Bar
   } from 'react-chartjs-2';
 import { pokeapi } from "./common";
 import 'react-virtualized/styles.css'; // only needs to be imported once
+
+defaults.font.family = 'pokemon-font';
 
 ChartJS.register(
     LinearScale,
@@ -36,17 +45,38 @@ class PokeModal extends React.Component {
                 {base_stat: 10},
                 {base_stat: 10},
                 {base_stat: 10}
-            ]
+            ],
+            sprites: {},
+            flavor_text: " "
         };
+
+        this.fetchData = this.fetchData.bind(this);
+    }
+
+    fetchData() {
+        pokeapi.get(`/pokemon-species/${this.state.name}`)
+        .then((response) => {
+            let flavor_text = response.data.flavor_text_entries;
+            flavor_text = flavor_text.filter((fte)=>fte.language.name === "en");
+            flavor_text = flavor_text[Math.floor(Math.random() * flavor_text.length)].flavor_text;
+            flavor_text = flavor_text.replaceAll("\n", " ").replaceAll("\f", " ");
+            this.setState({flavor_text: flavor_text});
+            //console.log(response.data);
+        })
+        .catch((error) => {
+            console.error('There was an ERROR: ', error);
+        });
     }
 
     render(){
         let {
             name,
-            stats
+            stats,
+            sprites,
+            flavor_text
         } = this.state;
         let data = {
-            labels: ['HP', "Attack", "Defense", "Special Attack", "Special Defense", "Speed"],
+            labels: ['HP', "Attack", "Defense", "Sp. Attack", "Sp. Defense", "Speed"],
             datasets: [{
                 data: stats.map((v)=>v.base_stat),
                 backgroundColor: [
@@ -79,11 +109,29 @@ class PokeModal extends React.Component {
                 }
             }
         };
-        console.log(this.state);
+        let carouselSprites = [];
+        Object.entries(sprites).forEach((data)=>{
+            let [key, url] = data;
+            if(key.startsWith("front") && url !== null){
+                carouselSprites.push((
+                    <Carousel.Item key={key}>
+                    <img
+                      className="pokemon-img"
+                      src={url}
+                      alt={`${this.state.name} ${key} sprite`}
+                    />
+                    <Carousel.Caption>
+                      <p>({key.replaceAll("_", " ")})</p>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                ));
+            }
+        });
+        //console.log(this.state);
 
         return (
             <Modal
-                className="pokemodal"
+                contentClassName="pokemodal"
                 show={this.state.show}
                 onHide={()=>this.setState({show: false})}
                 size="lg"
@@ -96,10 +144,24 @@ class PokeModal extends React.Component {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Bar data={data} options={options} />
+                    <Container>
+                        <Row>
+                            <Col xs={12} lg={4}>
+                                <Carousel fade variant="dark">
+                                    {carouselSprites}
+                                </Carousel>
+                            </Col>
+                            <Col>
+                                <Bar data={data} options={options} />
+                            </Col>
+                        </Row>
+                    </Container>
                 </Modal.Body>
                 <Modal.Footer>
-                    <img src="/prof-oak.png" id="prof-oak" />
+                    <img src="/prof-oak.png" id="prof-oak" alt="professor oak" />
+                    <Typist>
+                        {flavor_text}
+                    </Typist>
                 </Modal.Footer>
             </Modal>
         );
@@ -114,8 +176,8 @@ class PokedexEntry extends React.Component {
     }
 
     handleClick(event){
-        let data = Object.assign({show: true}, this.state);
-        this.props.modal.current.setState({...data});
+        let data = Object.assign({show: true}, this.state, {flavor_text: " "});
+        this.props.modal.current.setState({...data},()=>this.props.modal.current.fetchData());
     }
 
     componentDidMount() {
