@@ -80,7 +80,7 @@ class PokeModal extends React.Component {
             }
         };
         console.log(this.state);
-        console.log(data);
+
         return (
             <Modal
                 className="pokemodal"
@@ -96,16 +96,10 @@ class PokeModal extends React.Component {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <h4>Centered Modal</h4>
-                    <p>
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                    dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                    consectetur ac, vestibulum at eros.
-                    </p>
                     <Bar data={data} options={options} />
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={()=>this.setState({show: false})}>Close</Button>
+                    <img src="/prof-oak.png" id="prof-oak" />
                 </Modal.Footer>
             </Modal>
         );

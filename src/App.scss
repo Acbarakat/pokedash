@@ -63,6 +63,11 @@
         font-family: 'Pokemon Solid', sans-serif;
         text-transform: uppercase;
     }
+    #prof-oak {
+        position: absolute;
+        height: 430px;
+        right: -180px;
+    }
 }
 
 .vertical-timeline-element {
@@ -109,6 +114,12 @@
 @media (max-width: 990px) {
     a.nav-link>br {
         display: none !important;
+    }
+    .modal {
+        #prof-oak {
+            height: 350px;
+            right: -130px;
+        }
     }
 }
 
