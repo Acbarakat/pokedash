@@ -1,6 +1,9 @@
 import { setup } from 'axios-cache-adapter';
 
-const {REACT_APP_BEARER_TOKEN,REACT_APP_CORS_URL} = process.env;
+const {
+    REACT_APP_BEARER_TOKEN,
+    REACT_APP_CORS_URL
+} = process.env;
 
 // Create `axios` instance with pre-configured `axios-cache-adapter` attached to it
 export const pokeapi = setup({
