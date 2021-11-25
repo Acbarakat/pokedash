@@ -132,11 +132,10 @@ class PokeModal extends React.Component {
                 ));
             }
         });
-        console.log(this.state);
 
         let typeIcons = types.map((v)=>{
             let {name} = v.type;
-            return (<img src={`${name}.png`} alt={`${name} type symbol`} />);
+            return (<img key={name} src={`${name}.png`} alt={`${name} type symbol`} />);
         });
 
         return (
