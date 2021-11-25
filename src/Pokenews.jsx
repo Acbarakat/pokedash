@@ -49,7 +49,7 @@ class Tweet extends React.Component {
                     );
                     break;
                 case "video":
-                    // Currently not support in Twitter API V2
+                    // Currently not supported in Twitter API V2
                     mediaItem = (
                         <img
                             className="vertical-timeline-element-image"
