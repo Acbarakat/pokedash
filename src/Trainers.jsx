@@ -61,7 +61,7 @@ class PokeFlipCard extends React.Component {
                 {frontElem}
             </Card>
     
-            <Card onClick={this.handleClick} className="card-back">
+            <Card onClick={this.handleClick} className="card-back" id={this.props.name}>
                 <img src={gifUrl} alt={`${displayName} animated`}/>
                 <h2>{displayName}</h2>
             </Card>
@@ -127,7 +127,7 @@ class Trainers extends React.Component {
             <main className="developer">
                 <Container className="me">
                     <Row>
-                        <Col xs={4}>
+                        <Col xs={3}>
                             <img src={avatar_url} alt="developer" />
                             <h1><a href={user_html_url}>@{username}</a></h1>
                         </Col>
