@@ -77,6 +77,12 @@
                 }
             }
             .card-front {
+                background: linear-gradient(-45deg, $pkmn-logo-blue-dark, lighten($pkmn-logo-blue-dark, 30%));
+                //border: solid 10px $pkmn-logo-yellow-dark;
+                border: 10px solid;
+                border-image-slice: 1;
+                border-width: 5px;
+                border-image-source: linear-gradient(45deg, $pkmn-logo-yellow-dark, $pkmn-logo-yellow);
                 img {
                     width: 80px !important;
                     height: 80px !important;
