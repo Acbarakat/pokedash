@@ -5,7 +5,10 @@ import {
     Carousel,
     Container,
     Row,
-    Col
+    Col,
+    Form,
+    InputGroup,
+    FormControl
 } from 'react-bootstrap';
 import Typical from 'react-typical'
 import {
@@ -19,6 +22,7 @@ import {
   import {
     Bar
   } from 'react-chartjs-2';
+import { Icon } from '@iconify/react';
 import { pokeapi } from "./common";
 import 'react-virtualized/styles.css'; // only needs to be imported once
 
@@ -64,11 +68,10 @@ class PokeModal extends React.Component {
             flavor_text = flavor_text[Math.floor(Math.random() * flavor_text.length)].flavor_text;
             flavor_text = flavor_text.replaceAll("\n", " ").replaceAll("\f", " ");
             this.setState({flavor_text: flavor_text});
-            console.log(response.data);
         })
         .catch((error) => {
             //console.error('There was an ERROR: ', error);
-            this.setState({flavor_text: "Hmm I seem to be missing notes."})
+            this.setState({flavor_text: "Hmm I seem to be missing notes on this POKEMON."})
         });
     }
 
@@ -80,6 +83,7 @@ class PokeModal extends React.Component {
             flavor_text,
             types
         } = this.state;
+
         let data = {
             labels: ['HP', "Attack", "Defense", "Sp. Attack", "Sp. Defense", "Speed"],
             datasets: [{
@@ -132,13 +136,11 @@ class PokeModal extends React.Component {
                 ));
             }
         });
-
         let typeIcons = types.map((v)=>{
             let {name} = v.type;
             return (<img key={name} src={`${name}.png`} alt={`${name} type symbol`} />);
         });
 
-        //console.log(this.state);
         return (
             <Modal
                 contentClassName="pokemodal"
@@ -234,6 +236,7 @@ class Pokedex extends React.Component {
         this._cellRenderer = this._cellRenderer.bind(this);
         this._cellSizeAndPositionGetter = this._cellSizeAndPositionGetter.bind(this);
         this.updateDimensions = this.updateDimensions.bind(this);
+        this.handleChange = this.handleChange.bind(this)
 
         this.collection = React.createRef();
         this.modal = React.createRef();
@@ -262,7 +265,7 @@ class Pokedex extends React.Component {
                 pokemon.id = parseInt(pokemon.url.split("/")[6]);
             });
             // results = results.filter((pokemon)=>pokemon.id < 10000);
-            this.setState({data: results});
+            this.setState({data: results, fullData: results});
         })
         .catch((error) => {
           console.error('There was an ERROR: ', error);
@@ -291,21 +294,53 @@ class Pokedex extends React.Component {
           };
     }
 
+    handleChange(event) {
+        let {value} = event.target;
+        let data = this.state.fullData.filter((pokemon)=>pokemon.name.match(value.toLowerCase(), "g"));
+        
+        // My only way to work around saved <PokedexEntry />
+        this.setState({data: []}, ()=>this.setState({data: data}, ()=>this.updateDimensions()));
+    }
+
     render(){
         let navbarHeight = document.getElementsByClassName('navbar');
         navbarHeight = navbarHeight.length !== 0 ? navbarHeight[0].offsetHeight : 0;
+
+        let formHeight = document.getElementsByClassName('pokemon-search-form');
+        formHeight = formHeight.length !== 0 ? formHeight[0].offsetHeight : 0;
+        console.log(navbarHeight, formHeight)
 
         return (
             <AutoSizer>
             {({width, height}) => (
                 <main>
+                    <Form className="pokemon-search-form">
+                        <Row className="align-items-center">
+                            <Col>
+                                <Form.Label htmlFor="inlineFormInputGroup" visuallyHidden>
+                                    Search Pokemon
+                                </Form.Label>
+                                <InputGroup className="mb-2">
+                                    <InputGroup.Text>
+                                        <Icon icon="ic:twotone-catching-pokemon" width="30" />
+                                    </InputGroup.Text>
+                                    <FormControl
+                                        id="inlineFormInputGroup"
+                                        placeholder="Search Pokemon..." 
+                                        onChange={this.handleChange}
+                                        />
+                                </InputGroup>
+                            </Col>
+                        </Row>
+                    </Form>
                     <Collection
                         ref={this.collection}
                         cellCount={this.state.data.length}
                         cellRenderer={this._cellRenderer}
                         cellSizeAndPositionGetter={this._cellSizeAndPositionGetter}
                         className="pokedex"
-                        height={height - navbarHeight}
+                        overscanRowCount={1}
+                        height={height - navbarHeight - formHeight - (GUTTER * 2)}
                         width={width}
                     />
                     <PokeModal

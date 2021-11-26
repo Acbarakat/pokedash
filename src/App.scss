@@ -12,6 +12,22 @@ html {
     height: 100%;
 }
 
+main {
+    width: 100vw;
+}
+
+form {
+    margin: 15px auto;
+    width: 90%;
+    .input-group-text {
+        background-color: $pkmn-logo-yellow;
+    }
+    .form-control:focus {
+        border-color: $pkmn-logo-yellow-dark;
+        box-shadow: 0 0 0 0.25rem rgb($pokeball-red, 25%);
+    }
+}
+
 .navbar {
     font-family: 'Pokemon Solid', sans-serif;
     letter-spacing: 0.2em;
