@@ -8,6 +8,10 @@
     --line-color: #{$pkmn-logo-yellow};
 }
 
+html {
+    height: 100%;
+}
+
 .navbar {
     font-family: 'Pokemon Solid', sans-serif;
     letter-spacing: 0.2em;
