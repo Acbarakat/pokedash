@@ -11,7 +11,6 @@ import {githubapi} from "./common";
 class PokeFlipCard extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props)
 
         this.state = {
             isFlipped: false
@@ -87,7 +86,7 @@ class Trainers extends React.Component {
         githubapi.get(`users/Acbarakat`)
         .then(async (response) => {
             let {data} = response;
-            console.log(data);
+
             this.setState({
                 username: data.login,
                 user_html_url: data.html_url,
@@ -101,7 +100,7 @@ class Trainers extends React.Component {
         githubapi.get(`repos/Acbarakat/pokedash`)
         .then(async (response) => {
             let {data} = response;
-            console.log(data);
+
             this.setState({
                 description: data.description,
                 html_url: data.html_url
