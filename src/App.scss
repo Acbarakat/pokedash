@@ -44,7 +44,8 @@ html {
         &.me {
             width: 90%;
             color: #FFF;
-            background: linear-gradient(-45deg, $pkmn-logo-blue-dark, lighten($pkmn-logo-blue-dark, 30%));
+            background: url("https://assets.codepen.io/13471/holo.png"), linear-gradient(-45deg, $pkmn-logo-blue-dark, lighten($pkmn-logo-blue-dark, 30%));
+            background-blend-mode: multiply;
             border: 10px solid;
             border-image-slice: 1;
             border-width: 5px;
@@ -76,6 +77,8 @@ html {
                 min-width: 127px;
                 height: 370px;
                 margin-bottom: 15px;
+                opacity: 1;
+                background-image: url("https://assets.codepen.io/13471/holo.png"), linear-gradient(-45deg, $pkmn-logo-blue-dark, lighten($pkmn-logo-blue-dark, 30%));
                 img {
                     display: block;
                     margin: auto;
@@ -89,7 +92,7 @@ html {
                 }
             }
             .card-front {
-                background: linear-gradient(-45deg, $pkmn-logo-blue-dark, lighten($pkmn-logo-blue-dark, 30%));
+                background-blend-mode: unset;
                 border: 10px solid;
                 border-image-slice: 1;
                 border-width: 5px;
@@ -103,35 +106,41 @@ html {
                 border-image-slice: 1 !important;
                 border-width: 5px;
                 border: 10px solid;
+                background-blend-mode: hard-light;
                 &#ampharos-mega {
-                    background: linear-gradient(-45deg, $ampharos-red, lighten($ampharos-red, 30%));
+                    background-image: linear-gradient(-45deg, $ampharos-red, lighten($ampharos-red, 30%)), url("https://assets.codepen.io/13471/sparkles.gif");
                     border-image-source: linear-gradient(45deg, $ampharos-yellow, darken($ampharos-yellow, 30%));
                     color: $ampharos-yellow;
                 }
                 &#grimmsnarl {
-                    background: linear-gradient(-45deg, $grimmsnarl-purple, lighten($grimmsnarl-purple, 30%));
+                    background: linear-gradient(-45deg, $grimmsnarl-purple, lighten($grimmsnarl-purple, 30%)), url("https://assets.codepen.io/13471/sparkles.gif");
                     border-image-source: linear-gradient(45deg, $grimmsnarl-white, darken($grimmsnarl-white, 30%));
                     color: $grimmsnarl-white;
                 }
                 &#espeon {
-                    background: linear-gradient(-45deg, $espeon-purple, lighten($espeon-purple, 30%));
+                    background: linear-gradient(-45deg, $espeon-purple, lighten($espeon-purple, 30%)), url("https://assets.codepen.io/13471/sparkles.gif");
                     border-image-source: linear-gradient(45deg, $espeon-green, darken($espeon-green, 30%));
                     color: $espeon-green;
                 }
                 &#urshifu {
-                    background: linear-gradient(-45deg, lighten($urshifu-gray, 30%), $urshifu-gray);
+                    background: linear-gradient(-45deg, lighten($urshifu-gray, 30%), $urshifu-gray), url("https://assets.codepen.io/13471/sparkles.gif");
                     border-image-source: linear-gradient(45deg, $urshifu-yellow, darken($urshifu-yellow, 30%));
                     color: lighten($urshifu-yellow, 10%);
                 }
                 &#corviknight-gmax {
-                    background: linear-gradient(-45deg, lighten($corviknight-red, 30%), $corviknight-red);
+                    background: linear-gradient(-45deg, lighten($corviknight-red, 30%), $corviknight-red), url("https://assets.codepen.io/13471/sparkles.gif");
                     border-image-source: linear-gradient(-45deg, $corviknight-gray, darken($corviknight-gray, 30%));
                     color: darken($corviknight-gray, 20%);
+                    background-blend-mode: difference;
+                    h2 {
+                        font-size: 1.3em;
+                    }
                 }
                 &#reshiram {
-                    background: linear-gradient(-45deg, lighten($reshiram-gold, 30%), $reshiram-gold);
+                    background: linear-gradient(-45deg, lighten($reshiram-gold, 30%), $reshiram-gold), url("https://assets.codepen.io/13471/sparkles.gif");
                     border-image-source: linear-gradient(45deg, $reshiram-gray, darken($reshiram-gray, 30%));
                     color: darken($reshiram-gray, 20%);
+                    background-blend-mode: difference;
                 }
             }
         }
