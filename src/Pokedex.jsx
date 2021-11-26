@@ -340,7 +340,7 @@ class Pokedex extends React.Component {
                         cellSizeAndPositionGetter={this._cellSizeAndPositionGetter}
                         className="pokedex"
                         overscanRowCount={1}
-                        height={height - navbarHeight - formHeight - (GUTTER * 2)}
+                        height={height - navbarHeight - formHeight}
                         width={width}
                     />
                     <PokeModal

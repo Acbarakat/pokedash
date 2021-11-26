@@ -17,14 +17,22 @@ main {
 }
 
 form {
-    margin: 15px auto;
-    width: 90%;
+    padding: 15px auto;
+    width: 100%;
+    background-color: $pkmn-logo-yellow;
+    .row {
+        width: 90%;
+        margin: auto;
+    }
+    svg {
+        color: #FFF;
+    }
     .input-group-text {
-        background-color: $pkmn-logo-yellow;
+        background-color: $pkmn-logo-blue;
     }
     .form-control:focus {
-        border-color: $pkmn-logo-yellow-dark;
-        box-shadow: 0 0 0 0.25rem rgb($pokeball-red, 25%);
+        border-color: $pkmn-logo-blue-dark;
+        box-shadow: 0 0 0 0.25rem rgb($pkmn-logo-blue, 75%);
     }
 }
 
