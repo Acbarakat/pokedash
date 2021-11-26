@@ -32,7 +32,8 @@
         "build": "sass src/ && react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "watch": "sass --watch src/"
+        "watch": "sass --watch src/",
+        "cors": "cd node_modules/cors-anywhere && npm start"
     },
     "eslintConfig": {
         "extends": [
