@@ -30,7 +30,7 @@ function App() {
                             <Nav.Link href="/pokenews"><Icon icon="mdi:pokemon-go" width="40"/><br/>PokeNews</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="/trainers">Trainers/Developers</Nav.Link>
+                            <Nav.Link href="/trainers"><Icon icon="fa-solid:id-badge" width="30"/><br/> Trainer/Developer</Nav.Link>
                         </Nav.Item>
                     </Nav>
                 </Container>

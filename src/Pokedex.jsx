@@ -64,7 +64,7 @@ class PokeModal extends React.Component {
             flavor_text = flavor_text[Math.floor(Math.random() * flavor_text.length)].flavor_text;
             flavor_text = flavor_text.replaceAll("\n", " ").replaceAll("\f", " ");
             this.setState({flavor_text: flavor_text});
-            //console.log(response.data);
+            console.log(response.data);
         })
         .catch((error) => {
             //console.error('There was an ERROR: ', error);
@@ -138,6 +138,7 @@ class PokeModal extends React.Component {
             return (<img key={name} src={`${name}.png`} alt={`${name} type symbol`} />);
         });
 
+        //console.log(this.state);
         return (
             <Modal
                 contentClassName="pokemodal"
@@ -193,7 +194,6 @@ class PokedexEntry extends React.Component {
     componentDidMount() {
         pokeapi.get(`/pokemon/${this.props.name}`)
         .then((response) => {
-            // console.log(response.request.fromCache);
             this.setState({...response.data});
         })
         .catch((error) => {

@@ -16,14 +16,6 @@ export const pokeapi = setup({
   }
 })
 
-// Prepopulate
-/* pokeapi.get("/pokemon", {params: {limit: 9999}}).then(async (response) => {
-    console.log(response.data.results);
-    response.data.results.forEach(async (pokemon) => {
-        pokeapi.get(`/pokemon/${pokemon.name}`);
-    });
-}); */
-
 export const twitterapi = setup({
     // `axios` options
     baseURL: `${REACT_APP_CORS_URL}https://api.twitter.com/2`,
@@ -36,4 +28,14 @@ export const twitterapi = setup({
     cache: {
       maxAge: 15 * 60 * 1000
     }
+})
+
+export const githubapi = setup({
+  // `axios` options
+  baseURL: `https://api.github.com/`,
+
+  // `axios-cache-adapter` options
+  cache: {
+    maxAge: 15 * 60 * 1000
+  }
 })
