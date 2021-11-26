@@ -50,10 +50,13 @@
             h1 {
                 font-size: 1em;
                 text-align: center;
+                font-family: 'pokemon-font', monospace;
             }
             span {
                 display: block;
                 margin: 0.5em auto;
+                font-family: 'pokemon-font', monospace;
+                font-size: 0.9em;
             }
         }
         &.favorites {
@@ -71,6 +74,12 @@
                     font-family: 'Pokemon Solid', sans-serif;
                     font-size: 1.5em;
                     margin-bottom: 20px;
+                }
+            }
+            .card-front {
+                img {
+                    width: 80px !important;
+                    height: 80px !important;
                 }
             }
         }

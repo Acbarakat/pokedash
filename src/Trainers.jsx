@@ -29,10 +29,36 @@ class PokeFlipCard extends React.Component {
         let gifUrl = this.props.shiny === true ? "https://play.pokemonshowdown.com/sprites/ani-shiny/" : "https://play.pokemonshowdown.com/sprites/ani/";
         gifUrl += `${this.props.name}.gif`;
         let displayName = this.props.name.replace("-mega", " (Mega)").replace("-gmax", " (GMAX)");
+        let frontElem = (<br/>);
+        if(this.props.gmax === true){
+            frontElem = (<img src="gmax.png" alt="GMAX symbol"/>);
+        }else if(this.props.mega === true){
+            frontElem = (<img src="mega.png" alt="GMAX symbol"/>);
+        }else{
+            let imgUrl = ""
+            switch (displayName){
+                case "urshifu":
+                    imgUrl = "https://archives.bulbagarden.net/media/upload/archive/0/09/20161209233033%21Dream_Choice_Band_Sprite.png";
+                    break;
+                case "reshiram":
+                    imgUrl = "https://archives.bulbagarden.net/media/upload/1/11/Dream_Dragon_Fang_Sprite.png";
+                    break;
+                case "espeon":
+                    imgUrl = "https://archives.bulbagarden.net/media/upload/c/c7/Dream_Eevium_Z_Sprite.png";
+                    break;
+                case "grimmsnarl":
+                    imgUrl = "https://archives.bulbagarden.net/media/upload/d/db/Dream_Light_Clay_Sprite.png";
+                    break;
+                default:
+                    break;
+            }
+            frontElem = (<img src={imgUrl} alt="an item"/>);
+        }
+
         return(
         <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal">
             <Card onClick={this.handleClick} className="card-front">
-                This is the front of the card.
+                {frontElem}
             </Card>
     
             <Card onClick={this.handleClick} className="card-back">
