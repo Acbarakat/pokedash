@@ -11,7 +11,7 @@ It uses the following APIs:
 
 You will need to run a service to allows CORS to use the Twitter V2 API properly. You can try this by running `npm run cors`.
 
-You will also need to either creat an `.env` file or export the following:
+You will also need to either creat an `.env` file or export the following keys as environment variables:
 ```
 REACT_APP_BEARER_TOKEN=<TWITTER_API_BEARER_TOKEN>
 REACT_APP_CORS_URL=<CORS_URL>
