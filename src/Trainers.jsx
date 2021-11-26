@@ -126,7 +126,7 @@ class Trainers extends React.Component {
             <main className="developer">
                 <Container className="me">
                     <Row>
-                        <Col xs={3}>
+                        <Col xs={4} md={4}>
                             <img src={avatar_url} alt="developer" />
                             <h1><a href={user_html_url}>@{username}</a></h1>
                         </Col>
