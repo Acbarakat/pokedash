@@ -36,7 +36,7 @@ class PokeFlipCard extends React.Component {
             </Card>
     
             <Card onClick={this.handleClick} className="card-back">
-                <img src={gifUrl} />
+                <img src={gifUrl} alt={`${displayName} animated`}/>
                 <h2>{displayName}</h2>
             </Card>
         </ReactCardFlip>
@@ -102,7 +102,7 @@ class Trainers extends React.Component {
                 <Container className="me">
                     <Row>
                         <Col xs={4}>
-                            <img src={avatar_url} alt="developer photo" />
+                            <img src={avatar_url} alt="developer" />
                             <h1><a href={user_html_url}>@{username}</a></h1>
                         </Col>
                         <Col>
