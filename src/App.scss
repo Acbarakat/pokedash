@@ -293,9 +293,9 @@ form {
             @each $name,
             $color in $types {
                 &.bg-#{$name} {
-                    background: darken($color, 20%);
+                    background: $color;
                     &:hover {
-                        background: $color;
+                        background: lighten($color, 20%);
                     }
                 }
             }
