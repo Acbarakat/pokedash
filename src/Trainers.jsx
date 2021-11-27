@@ -37,16 +37,16 @@ class PokeFlipCard extends React.Component {
             let imgUrl = ""
             switch (displayName){
                 case "urshifu":
-                    imgUrl = "https://archives.bulbagarden.net/media/upload/archive/0/09/20161209233033%21Dream_Choice_Band_Sprite.png";
+                    imgUrl = "20161209233033%21Dream_Choice_Band_Sprite.png";
                     break;
                 case "reshiram":
-                    imgUrl = "https://archives.bulbagarden.net/media/upload/1/11/Dream_Dragon_Fang_Sprite.png";
+                    imgUrl = "Dream_Dragon_Fang_Sprite.png";
                     break;
                 case "espeon":
-                    imgUrl = "https://archives.bulbagarden.net/media/upload/c/c7/Dream_Eevium_Z_Sprite.png";
+                    imgUrl = "Dream_Eevium_Z_Sprite.png";
                     break;
                 case "grimmsnarl":
-                    imgUrl = "https://archives.bulbagarden.net/media/upload/d/db/Dream_Light_Clay_Sprite.png";
+                    imgUrl = "Dream_Light_Clay_Sprite.png";
                     break;
                 default:
                     break;
