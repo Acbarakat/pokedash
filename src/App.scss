@@ -272,16 +272,16 @@ form {
                 color: #aaaaaa;
             }
             &.dmg_resist2 .dmg_value {
-                color: green;
+                color: darkseagreen;
             }
             &.dmg_resist .dmg_value {
-                color: darken(green, 10%);
+                color: green;
             }
             &.dmg_normal .dmg_value {
                 color: #000;
             }
             &.dmg_weak .dmg_value {
-                color: lighten(red, 10%);
+                color: darkorange;
             }
             &.dmg_weak2 .dmg_value {
                 color: red;
