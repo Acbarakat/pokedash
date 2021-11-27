@@ -209,13 +209,10 @@ form {
 }
 
 .pokemodal {
-    //background: darken($pokeball-red, 20%);
     border-radius: 15px;
     .modal-header {
         border-top-left-radius: 14px;
         border-top-right-radius: 14px;
-        //background: darken($pokeball-red, 20%);
-        //color: #FFF;
         img {
             height: 40px;
             width: 40px;
@@ -223,7 +220,6 @@ form {
         }
     }
     .modal-title {
-        //font-family: 'Pokemon Solid', sans-serif;
         font-family: 'pokemon-font', monospace;
         text-transform: uppercase;
     }
