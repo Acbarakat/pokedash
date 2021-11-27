@@ -264,7 +264,8 @@ class Pokedex extends React.Component {
             results.forEach((pokemon) => {
                 pokemon.id = parseInt(pokemon.url.split("/")[6]);
             });
-            // results = results.filter((pokemon)=>pokemon.id < 10000);
+            // WA to not include the totem pokemon
+            results = results.filter((pokemon)=>!pokemon.name.includes("-totem"));
             this.setState({data: results, fullData: results});
         })
         .catch((error) => {
