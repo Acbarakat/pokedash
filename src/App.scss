@@ -185,6 +185,10 @@ form {
         img {
             width: 96px * 1.3;
             height: 96px * 1.3;
+            &:hover {
+                width: 96px * 2.0;
+                height: 96px * 2.0;
+            }
         }
         @each $name,
         $color in $types {
