@@ -260,6 +260,47 @@ form {
             top: 100%;
         }
     }
+    .effectiveness {
+        text-align: center;
+        .col {
+            min-width: 97px;
+            font-weight: bold;
+            .dmg_value {
+                width: 100%
+            }
+            &.dmg_immune .dmg_value {
+                color: #aaaaaa;
+            }
+            &.dmg_resist2 .dmg_value {
+                color: green;
+            }
+            &.dmg_resist .dmg_value {
+                color: darken(green, 10%);
+            }
+            &.dmg_normal .dmg_value {
+                color: #000;
+            }
+            &.dmg_weak .dmg_value {
+                color: lighten(red, 10%);
+            }
+            &.dmg_weak2 .dmg_value {
+                color: red;
+            }
+        }
+        .badge {
+            width: 100%;
+            text-transform: uppercase;
+            @each $name,
+            $color in $types {
+                &.bg-#{$name} {
+                    background: darken($color, 20%);
+                    &:hover {
+                        background: $color;
+                    }
+                }
+            }
+        }
+    }
     .modal-footer {
         font-family: 'pokemon-font', monospace;
         font-weight: bolder;

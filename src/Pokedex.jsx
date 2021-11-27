@@ -8,7 +8,8 @@ import {
     Col,
     Form,
     InputGroup,
-    FormControl
+    FormControl,
+    Badge
 } from 'react-bootstrap';
 import Typical from 'react-typical'
 import {
@@ -23,7 +24,7 @@ import {
     Bar
   } from 'react-chartjs-2';
 import { Icon } from '@iconify/react';
-import { pokeapi } from "./common";
+import { pokeapi, types_name, types_chart } from "./common";
 import 'react-virtualized/styles.css'; // only needs to be imported once
 
 defaults.font.family = 'pokemon-font';
@@ -141,6 +142,35 @@ class PokeModal extends React.Component {
             return (<img key={name} src={`${name}.png`} alt={`${name} type symbol`} />);
         });
 
+        let weaknessGraphic = types_name.map((typing, idx)=>{
+            console.log(typing, idx)
+            let type1 = types_name.indexOf(types[0].type.name);
+            let type2 = types.length > 1 ? types_name.indexOf(types[1].type.name) : 18;
+            let effectiveness = (types_chart[idx][type1] * types_chart[idx][type2]);
+            let dmg_type = 'dmg_normal'
+            switch(effectiveness){
+                case 1:
+                    dmg_type = "dmg_normal";
+                    break;
+                case 0:
+                    dmg_type = "dmg_immune";
+                    break;
+                default:
+                    if(effectiveness < 1){dmg_type = "dmg_resist"};
+                    if(effectiveness < 0.5){dmg_type = "dmg_resist2"};
+                    if(effectiveness > 1){dmg_type= "dmg_weak"};
+                    if(effectiveness > 2){dmg_type = "dmg_weak2"};
+            }
+
+            return (
+                <Col className={dmg_type}>
+                    <Badge bg={typing}>{typing}</Badge>
+                    <br/>
+                    <span className="dmg_value">x{effectiveness}</span>
+                </Col>
+            )
+        })
+
         return (
             <Modal
                 contentClassName="pokemodal"
@@ -167,6 +197,9 @@ class PokeModal extends React.Component {
                             <Col>
                                 <Bar data={data} options={options} />
                             </Col>
+                        </Row>
+                        <Row className="effectiveness mt-4 justify-content-md-center" xs={2} md="auto">
+                            {weaknessGraphic}
                         </Row>
                     </Container>
                 </Modal.Body>
