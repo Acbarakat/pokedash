@@ -174,6 +174,9 @@ form {
 .pokedex {
     grid-gap: 0.75rem;
     grid-template-columns: repeat(auto-fill, minmax(82px, 1fr));
+    &:hover .entry {
+        opacity: .5;
+    }
     .entry {
         display: flex;
         -webkit-box-pack: center;
@@ -182,12 +185,16 @@ form {
         align-items: center;
         border-radius: 50%;
         transition: 0.3s;
+        &:hover {
+            opacity: 1;
+        }
         img {
             width: 96px * 1.3;
             height: 96px * 1.3;
             &:hover {
                 width: 96px * 2.0;
                 height: 96px * 2.0;
+                z-index: 100;
             }
         }
         @each $name,
