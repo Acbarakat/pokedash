@@ -347,9 +347,14 @@ form {
 @media (max-width: 1170px) {
     .vertical-timeline-element {
         .vertical-timeline-element-date {
-            color: $pkmn-logo-blue !important;
-            font-size: 1.2rem !important;
+            color: #000!important;
+            font-size: 0.6rem !important;
+            font-weight: bolder;
+            font-family: 'pokemon-font', monospace;
             text-shadow: unset;
+            width: 100%;
+            border-top: 1px dotted #000;
+            margin: 0.8em 0 0 0;
         }
         .vertical-timeline-element-icon {
             img {
