@@ -93,9 +93,9 @@ class Trainers extends React.Component {
                 avatar_url: data.avatar_url
             });
         })
-        .catch((error) => {
-            console.error('There was an ERROR: ', error);
-        });
+        .catch((error) => 
+            console.error('There was an ERROR: ', error)
+        );
 
         githubapi.get(`repos/Acbarakat/pokedash`)
         .then(async (response) => {
@@ -106,9 +106,9 @@ class Trainers extends React.Component {
                 html_url: data.html_url
             });
         })
-        .catch((error) => {
-            console.error('There was an ERROR: ', error);
-        });
+        .catch((error) => 
+            console.error('There was an ERROR: ', error)
+        );
     }
 
 

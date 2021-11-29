@@ -79,7 +79,7 @@ class Tweet extends React.Component {
 
 class Pokenews extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         
         this.state = {
             data: [],

@@ -11,7 +11,7 @@ import {
     FormControl,
     Badge
 } from 'react-bootstrap';
-import Typical from 'react-typical'
+import Typical from 'react-typical';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -71,7 +71,7 @@ class PokeModal extends React.Component {
             this.setState({flavor_text: flavor_text});
         })
         .catch((error) => {
-            //console.error('There was an ERROR: ', error);
+            console.debug('pokemon-species ERROR: ', error);
             this.setState({flavor_text: "Hmm I seem to be missing notes on this POKEMON."})
         });
     }
@@ -99,6 +99,7 @@ class PokeModal extends React.Component {
                 ],
             }]
         };
+
         let options ={
             indexAxis: 'y',
             responsive: true,
@@ -119,6 +120,7 @@ class PokeModal extends React.Component {
                 }
             }
         };
+
         let carouselSprites = [];
         Object.entries(sprites).forEach((data)=>{
             let [key, url] = data;
@@ -137,6 +139,7 @@ class PokeModal extends React.Component {
                 ));
             }
         });
+
         let typeIcons = types.map((v)=>{
             let {name} = v.type;
             return (<img key={name} src={`${name}.png`} alt={`${name} type symbol`} />);
@@ -168,7 +171,7 @@ class PokeModal extends React.Component {
                     <span className="dmg_value">x{effectiveness}</span>
                 </Col>
             )
-        })
+        });
 
         return (
             <Modal
@@ -181,7 +184,7 @@ class PokeModal extends React.Component {
                 >
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                    {name}
+                        {name}
                     </Modal.Title>
                     {typeIcons}
                 </Modal.Header>
@@ -215,9 +218,9 @@ class PokeModal extends React.Component {
 
 class PokedexEntry extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
-        this.handleClick = this.handleClick.bind(this)
+        this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick(event){
@@ -257,7 +260,7 @@ const GUTTER = 15;
 
 class Pokedex extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         
         this.state = {
             data: [],
@@ -268,7 +271,7 @@ class Pokedex extends React.Component {
         this._cellRenderer = this._cellRenderer.bind(this);
         this._cellSizeAndPositionGetter = this._cellSizeAndPositionGetter.bind(this);
         this.updateDimensions = this.updateDimensions.bind(this);
-        this.handleChange = this.handleChange.bind(this)
+        this.handleChange = this.handleChange.bind(this);
 
         this.collection = React.createRef();
         this.modal = React.createRef();
@@ -301,7 +304,7 @@ class Pokedex extends React.Component {
             this.setState({data: results, fullData: results});
         })
         .catch((error) => {
-          console.error('There was an ERROR: ', error);
+            console.error('There was an ERROR: ', error);
         });
     }
 
