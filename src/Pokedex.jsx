@@ -143,7 +143,6 @@ class PokeModal extends React.Component {
         });
 
         let weaknessGraphic = types_name.map((typing, idx)=>{
-            console.log(typing, idx)
             let type1 = types_name.indexOf(types[0].type.name);
             let type2 = types.length > 1 ? types_name.indexOf(types[1].type.name) : 18;
             let effectiveness = (types_chart[idx][type1] * types_chart[idx][type2]);
@@ -163,7 +162,7 @@ class PokeModal extends React.Component {
             }
 
             return (
-                <Col className={dmg_type}>
+                <Col className={dmg_type} key={typing}>
                     <Badge bg={typing}>{typing}</Badge>
                     <br/>
                     <span className="dmg_value">x{effectiveness}</span>
@@ -195,7 +194,7 @@ class PokeModal extends React.Component {
                                 </Carousel>
                             </Col>
                             <Col>
-                                <Bar data={data} options={options} />
+                                <Bar data={data} options={options} aria-label="base stats graph" role="img"/>
                             </Col>
                         </Row>
                         <Row className="effectiveness mt-4 justify-content-md-center" xs={2} md="auto">
@@ -342,7 +341,6 @@ class Pokedex extends React.Component {
 
         let formHeight = document.getElementsByClassName('pokemon-search-form');
         formHeight = formHeight.length !== 0 ? formHeight[0].offsetHeight : 0;
-        console.log(navbarHeight, formHeight)
 
         return (
             <AutoSizer>

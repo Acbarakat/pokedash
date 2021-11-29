@@ -39,6 +39,7 @@ form {
 .navbar {
     font-family: 'Pokemon Solid', sans-serif;
     letter-spacing: 0.2em;
+    z-index: 1;
     &.bg-pokemon {
         background-color: $pkmn-logo-yellow !important;
     }
@@ -269,10 +270,10 @@ form {
                 width: 100%
             }
             &.dmg_immune .dmg_value {
-                color: #aaaaaa;
+                color: darkviolet;
             }
             &.dmg_resist2 .dmg_value {
-                color: darkseagreen;
+                color: darkgreen;
             }
             &.dmg_resist .dmg_value {
                 color: green;
@@ -281,10 +282,10 @@ form {
                 color: #000;
             }
             &.dmg_weak .dmg_value {
-                color: darkorange;
+                color: lighten(darkred, 15%);
             }
             &.dmg_weak2 .dmg_value {
-                color: red;
+                color: darkred;
             }
         }
         .badge {
@@ -293,9 +294,19 @@ form {
             @each $name,
             $color in $types {
                 &.bg-#{$name} {
-                    background: darken($color, 10%);
-                    &:hover {
-                        background: $color;
+                    background: $color;
+                    @if index( (ghost,
+                    dragon),
+                    $name) {
+                        color: #fff
+                    }
+                    @else if (lightness($color)>50 or index((bug,
+                    rock),
+                    $name)) {
+                        color: #000;
+                    }
+                    @else {
+                        color: #fff
                     }
                 }
             }
@@ -315,7 +326,11 @@ form {
         font-size: 2rem !important;
         color: $pkmn-logo-yellow;
         opacity: unset !important;
-        text-shadow: 2px 2px 0 $pkmn-logo-blue-dark;
+        background-color: $pkmn-logo-blue;
+        text-shadow: 2px 2px 0 darken($pkmn-logo-blue-dark, 10%);
+        span {
+            background-color: $pkmn-logo-blue;
+        }
         &:nth-child(odd) {
             text-align: left;
         }
