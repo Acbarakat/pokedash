@@ -30,9 +30,9 @@ class PokeFlipCard extends React.Component {
         let displayName = this.props.name.replace("-mega", " (Mega)").replace("-gmax", " (GMAX)");
         let frontElem = (<br/>);
         if(this.props.gmax === true){
-            frontElem = (<img src="gmax.png" alt="GMAX symbol"/>);
+            frontElem = (<img src="/gmax.png" alt="GMAX symbol"/>);
         }else if(this.props.mega === true){
-            frontElem = (<img src="mega.png" alt="GMAX symbol"/>);
+            frontElem = (<img src="/mega.png" alt="GMAX symbol"/>);
         }else{
             let imgUrl = ""
             switch (displayName){
@@ -51,7 +51,7 @@ class PokeFlipCard extends React.Component {
                 default:
                     break;
             }
-            frontElem = (<img src={imgUrl} alt="an item"/>);
+            frontElem = (<img src={`/${imgUrl}`} alt="an item"/>);
         }
 
         return(
