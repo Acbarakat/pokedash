@@ -72,7 +72,7 @@ form {
             background: url("https://assets.codepen.io/13471/holo.png"), linear-gradient(-45deg, $pkmn-logo-blue-dark, lighten($pkmn-logo-blue-dark, 30%));
             background-blend-mode: multiply;
             border: 10px solid;
-            border-image-slice: 1;
+            border-image-slice: 1 !important;
             border-width: 5px;
             border-image-source: linear-gradient(45deg, $pkmn-logo-yellow-dark, $pkmn-logo-yellow);
             a {
@@ -120,7 +120,7 @@ form {
             .card-front {
                 background-blend-mode: unset;
                 border: 10px solid;
-                border-image-slice: 1;
+                border-image-slice: 1 !important;
                 border-width: 5px;
                 border-image-source: linear-gradient(45deg, $pkmn-logo-yellow-dark, $pkmn-logo-yellow);
                 img {

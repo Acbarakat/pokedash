@@ -17,6 +17,7 @@ import { PUBLIC_URL } from "./common";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+const prefix = window.location.host.indexOf("github.io") > 0 ? PUBLIC_URL : "";
 
 function App() {
   return (
@@ -25,13 +26,13 @@ function App() {
                 <Container>
                     <Nav fill className="m-auto w-100 ">
                         <Nav.Item>
-                            <Nav.Link href="/pokenews"><Icon icon="mdi:pokemon-go" width="40"/><br/>PokeNews</Nav.Link>
+                            <Nav.Link href={`${prefix}/pokenews`}><Icon icon="mdi:pokemon-go" width="40"/><br/>PokeNews</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="/pokedex"><Icon icon="ic:twotone-catching-pokemon" width="40" /><br/>Pokedex</Nav.Link>
+                            <Nav.Link href={`${prefix}/pokedex`}><Icon icon="ic:twotone-catching-pokemon" width="40" /><br/>Pokedex</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="/trainers"><Icon icon="fa-solid:id-badge" width="30"/><br/> Trainer/Developer</Nav.Link>
+                            <Nav.Link href={`${prefix}/trainers`}><Icon icon="fa-solid:id-badge" width="30"/><br/> Trainer/Developer</Nav.Link>
                         </Nav.Item>
                     </Nav>
                 </Container>
