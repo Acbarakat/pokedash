@@ -1,5 +1,6 @@
 {
     "name": "pokedash",
+    "homepage": "https://acbarakat.github.io/pokedash",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
