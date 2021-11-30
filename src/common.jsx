@@ -21,7 +21,8 @@ export const twitterapi = setup({
     // `axios` options
     baseURL: `${CORS_URL}https://api.twitter.com/2`,
     headers: {
-        'Access-Control-Allow-Origin': 'https://acbarakat.github.io',
+        'Access-Control-Allow-Origin': '*',
+        'mode': 'cors',
         "authorization": `Bearer ${REACT_APP_BEARER_TOKEN}`
     },
   
