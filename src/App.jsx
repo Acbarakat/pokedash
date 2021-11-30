@@ -17,9 +17,9 @@ import { PUBLIC_URL } from "./common";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-const prefix = window.location.host.indexOf("github.io") > 0 ? PUBLIC_URL : "";
-
 function App() {
+  const prefix = window.location.host.indexOf("github.io") > 0 ? PUBLIC_URL : "";
+
   return (
         <BrowserRouter>
             <Navbar expand="lg" bg="pokemon"> 
