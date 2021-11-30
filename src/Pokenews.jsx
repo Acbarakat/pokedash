@@ -98,8 +98,9 @@ class Pokenews extends React.Component {
                 twitterapi.get(`users/${userdata.id}/tweets`, {
                     params:{
                         "tweet.fields": "created_at,entities",
-                        "expansions": "attachments.media_keys",
+                        "expansions": "attachments.media_keys,in_reply_to_user_id",
                         "media.fields": "url,preview_image_url,alt_text",
+                        "max_results": 25
                     }
                 })
                 .then(
@@ -108,6 +109,8 @@ class Pokenews extends React.Component {
                         let {media} = response.data.includes;
                         let mediaData = {};
                         media.forEach((v)=>{mediaData[v.media_key] = v});
+                        // filter out replies
+                        data = data.filter((v)=>v.in_reply_to_user_id===undefined);
 
                         let stateData = Object.assign(
                             userdata,
