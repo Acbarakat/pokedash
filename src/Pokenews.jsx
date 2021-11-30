@@ -5,6 +5,7 @@ import {
 }  from 'react-vertical-timeline-component';
 import StarIcon from '@material-ui/icons/Star';
 import { twitterapi } from "./common";
+import {fallbackData} from "./_newsdata";
 import 'react-vertical-timeline-component/style.min.css';
 
 class Tweet extends React.Component {
@@ -81,9 +82,7 @@ class Pokenews extends React.Component {
     constructor(props) {
         super(props);
         
-        this.state = {
-            data: [],
-        };
+        this.state = fallbackData;
     }
 
     componentDidMount() {
