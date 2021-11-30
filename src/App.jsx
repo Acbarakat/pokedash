@@ -13,6 +13,7 @@ import { Icon } from '@iconify/react';
 import Pokedex from './Pokedex';
 import Pokenews from './Pokenews';
 import Trainers from './Trainers'
+import { PUBLIC_URL } from "./common";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -39,10 +40,19 @@ function App() {
                 <Route path="/pokedex">
                     <Pokedex />
                 </Route>
+                <Route path={`${PUBLIC_URL}/pokedex`}>
+                    <Pokedex />
+                </Route>
                 <Route path="/pokenews">
                     <Pokenews />
                 </Route>
+                <Route path={`${PUBLIC_URL}/pokenews`}>
+                    <Pokenews />
+                </Route>
                 <Route path="/trainers">
+                    <Trainers />
+                </Route>
+                <Route path={`${PUBLIC_URL}/trainers`}>
                     <Trainers />
                 </Route>
                 <Route path="/">
