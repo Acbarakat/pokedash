@@ -6,7 +6,8 @@ import {
     Row,
     Col
 } from 'react-bootstrap';
-import {githubapi} from "./common";
+import {githubapi, PUBLIC_URL} from "./common";
+console.log(PUBLIC_URL)
 
 class PokeFlipCard extends React.Component {
     constructor(props) {
@@ -30,9 +31,9 @@ class PokeFlipCard extends React.Component {
         let displayName = this.props.name.replace("-mega", " (Mega)").replace("-gmax", " (GMAX)");
         let frontElem = (<br/>);
         if(this.props.gmax === true){
-            frontElem = (<img src="/gmax.png" alt="GMAX symbol"/>);
+            frontElem = (<img src={`${PUBLIC_URL}\\gmax.png`} alt="GMAX symbol"/>);
         }else if(this.props.mega === true){
-            frontElem = (<img src="/mega.png" alt="GMAX symbol"/>);
+            frontElem = (<img src={`${PUBLIC_URL}\\mega.png`} alt="MEGA stone"/>);
         }else{
             let imgUrl = ""
             switch (displayName){
@@ -51,7 +52,7 @@ class PokeFlipCard extends React.Component {
                 default:
                     break;
             }
-            frontElem = (<img src={`/${imgUrl}`} alt="an item"/>);
+            frontElem = (<img src={`${PUBLIC_URL}\\${imgUrl}`} alt="an item"/>);
         }
 
         return(

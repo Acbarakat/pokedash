@@ -1,8 +1,9 @@
 import { setup } from 'axios-cache-adapter';
 
-const {
+export const {
     REACT_APP_BEARER_TOKEN,
-    REACT_APP_CORS_URL
+    REACT_APP_CORS_URL,
+    PUBLIC_URL
 } = process.env;
 let CORS_URL = REACT_APP_CORS_URL === undefined ? "" : REACT_APP_CORS_URL.trim();
 
