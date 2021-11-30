@@ -4,7 +4,7 @@ const {
     REACT_APP_BEARER_TOKEN,
     REACT_APP_CORS_URL
 } = process.env;
-let CORS_URL = REACT_APP_CORS_URL || "";
+let CORS_URL = REACT_APP_CORS_URL === undefined ? "" : REACT_APP_CORS_URL.trim();
 
 // Create `axios` instance with pre-configured `axios-cache-adapter` attached to it
 export const pokeapi = setup({
@@ -20,7 +20,7 @@ export const pokeapi = setup({
 export const twitterapi = setup({
     // `axios` options
     baseURL: `${CORS_URL}https://api.twitter.com/2`,
-    mode: 'cors',
+    // mode: 'cors',
     headers: {
         'Access-Control-Allow-Origin': '*',
         "authorization": `Bearer ${REACT_APP_BEARER_TOKEN}`
