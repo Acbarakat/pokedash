@@ -7,7 +7,6 @@ import {
     Col
 } from 'react-bootstrap';
 import {githubapi, PUBLIC_URL} from "./common";
-console.log(PUBLIC_URL)
 
 class PokeFlipCard extends React.Component {
     constructor(props) {
