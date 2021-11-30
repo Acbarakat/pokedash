@@ -24,7 +24,7 @@ import {
     Bar
   } from 'react-chartjs-2';
 import { Icon } from '@iconify/react';
-import { pokeapi, types_name, types_chart } from "./common";
+import { pokeapi, types_name, types_chart, PUBLIC_URL } from "./common";
 import 'react-virtualized/styles.css'; // only needs to be imported once
 
 defaults.font.family = 'pokemon-font';
@@ -142,7 +142,7 @@ class PokeModal extends React.Component {
 
         let typeIcons = types.map((v)=>{
             let {name} = v.type;
-            return (<img key={name} src={`${name}.png`} alt={`${name} type symbol`} />);
+            return (<img key={name} src={`${PUBLIC_URL}\\${name}.png`} alt={`${name} type symbol`} />);
         });
 
         let weaknessGraphic = types_name.map((typing, idx)=>{
@@ -206,7 +206,7 @@ class PokeModal extends React.Component {
                     </Container>
                 </Modal.Body>
                 <Modal.Footer>
-                    <img src="/prof-oak.png" id="prof-oak" alt="professor oak" />
+                    <img src={`${PUBLIC_URL}/prof-oak.png`} id="prof-oak" alt="professor oak" />
                     <Typical
                         steps={[flavor_text]}
                         />
