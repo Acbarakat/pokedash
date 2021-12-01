@@ -18,6 +18,7 @@ import {
     LinearScale,
     BarElement,
     Title,
+    Tooltip,
     defaults
   } from 'chart.js';
   import {
@@ -33,7 +34,8 @@ ChartJS.register(
     LinearScale,
     CategoryScale,
     BarElement,
-    Title
+    Title,
+    Tooltip
 );
 
 class PokeModal extends React.Component {
@@ -86,7 +88,7 @@ class PokeModal extends React.Component {
         } = this.state;
 
         let data = {
-            labels: ['HP', "Attack", "Defense", "Sp. Attack", "Sp. Defense", "Speed"],
+            labels: ['HP', "ATK", "DEF", "SATK", "SDEF", "SPD"],
             datasets: [{
                 data: stats.map((v)=>v.base_stat),
                 backgroundColor: [
@@ -110,6 +112,41 @@ class PokeModal extends React.Component {
                 title: {
                     display: true,
                     text: "Base Stats"
+                },
+                tooltip: {
+                    callbacks: {
+                        title : () => null,
+                        label: function(context) {
+                            console.log(context)
+                            let {formattedValue, label} = context;
+                            let description = ''
+                            switch(label){
+                                case "HP":
+                                    description = "Hit Points";
+                                    break;
+                                case "ATK":
+                                    description = "Attack";
+                                    break;
+                                case "DEF":
+                                    description = "Defense";
+                                    break;
+                                case "SATK":
+                                    description = "Special Attack";
+                                    break;
+                                case "SDEF":
+                                    description = "Special Defense";
+                                    break;
+                                case "SPD":
+                                    description = "Speed";
+                                    break;
+                                default:
+                                    description = "?"
+                            };
+                            description += " : " + formattedValue;
+
+                            return description;
+                        }
+                    }
                 }
             },
             scales: {
