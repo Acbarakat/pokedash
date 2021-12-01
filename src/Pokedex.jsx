@@ -105,6 +105,7 @@ class PokeModal extends React.Component {
         let options ={
             indexAxis: 'y',
             responsive: true,
+            animateScale: true,
             plugins: {
                 legend: {
                     display: false
@@ -117,9 +118,8 @@ class PokeModal extends React.Component {
                     callbacks: {
                         title : () => null,
                         label: function(context) {
-                            console.log(context)
                             let {formattedValue, label} = context;
-                            let description = ''
+                            let description = '';
                             switch(label){
                                 case "HP":
                                     description = "Hit Points";
@@ -233,7 +233,7 @@ class PokeModal extends React.Component {
                                     {carouselSprites}
                                 </Carousel>
                             </Col>
-                            <Col>
+                            <Col className="pokemon-chart">
                                 <Bar data={data} options={options} aria-label="base stats graph" role="img"/>
                             </Col>
                         </Row>
