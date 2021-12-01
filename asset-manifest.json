@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/pokedash/static/css/main.91a49d89.chunk.css",
-    "main.js": "/pokedash/static/js/main.72aec2f2.chunk.js",
-    "main.js.map": "/pokedash/static/js/main.72aec2f2.chunk.js.map",
+    "main.js": "/pokedash/static/js/main.de68e42c.chunk.js",
+    "main.js.map": "/pokedash/static/js/main.de68e42c.chunk.js.map",
     "runtime-main.js": "/pokedash/static/js/runtime-main.97d73d32.js",
     "runtime-main.js.map": "/pokedash/static/js/runtime-main.97d73d32.js.map",
     "static/css/2.505822d7.chunk.css": "/pokedash/static/css/2.505822d7.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.505822d7.chunk.css",
     "static/js/2.db2ef2c0.chunk.js",
     "static/css/main.91a49d89.chunk.css",
-    "static/js/main.72aec2f2.chunk.js"
+    "static/js/main.de68e42c.chunk.js"
   ]
 }
